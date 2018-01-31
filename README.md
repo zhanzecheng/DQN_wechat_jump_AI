@@ -34,7 +34,7 @@ tqdm
 
     List of devices attached
     6934dc33    device
-便完成配置
+便完成配置 . 
 windows和linux环境配置可参考下面的连接
 [配置链接](https://github.com/wangshub/wechat_jump_game/wiki/Android-%E5%92%8C-iOS-%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4)
 
