@@ -38,8 +38,8 @@ class Env:
         self.piece_base_height_1_2 = self.config['piece_base_height_1_2']
         # 棋子的宽度，比截图中量到的稍微大一点比较安全，可能要调节
         self.piece_body_width = self.config['piece_body_width']
-        self.MIN_DISTANCE = 350 / float(self.press_coefficient)
-        self.MAX_DISTANCE = 950 / float(self.press_coefficient)
+        self.MIN_DISTANCE = int(350 / float(self.press_coefficient))
+        self.MAX_DISTANCE = int(950 / float(self.press_coefficient))
 
         print('====================load parameter success====================')
         screenshot.check_screenshot()
