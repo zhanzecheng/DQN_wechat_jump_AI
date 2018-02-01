@@ -20,8 +20,6 @@ from RL_brain import DuelingDQN
 # common是 https://github.com/wangshub/wechat_jump_game 控制移动端截图 手机尺寸配置等文件
 from common import debug, config, screenshot
 
-MIN_DISTANCE = 120
-MAX_DISTANCE = 460
 SLEEP_TIME = 3
 class Env:
     '''
@@ -40,6 +38,9 @@ class Env:
         self.piece_base_height_1_2 = self.config['piece_base_height_1_2']
         # 棋子的宽度，比截图中量到的稍微大一点比较安全，可能要调节
         self.piece_body_width = self.config['piece_body_width']
+        self.MIN_DISTANCE = 350 / float(self.press_coefficient)
+        self.MAX_DISTANCE = 950 / float(self.press_coefficient)
+
         print('====================load parameter success====================')
         screenshot.check_screenshot()
 
@@ -189,15 +190,15 @@ class Env:
         self._set_button_position(im)
         state = math.sqrt((board_x - piece_x) ** 2 + (board_y - piece_y) ** 2)
         im.close()
-        a = [(state - MIN_DISTANCE) /  (MAX_DISTANCE - MIN_DISTANCE)]
+        a = [(state - self.MIN_DISTANCE) /  (self.MAX_DISTANCE - self.MIN_DISTANCE)]
         return np.array(a)
 
     def generate_state(self, action_, state):
 
-        action_true = self.press_coefficient * ((MAX_DISTANCE - MIN_DISTANCE) * state + MIN_DISTANCE)
+        action_true = self.press_coefficient * ((self.MAX_DISTANCE - self.MIN_DISTANCE) * state + self.MIN_DISTANCE)
         done = False
         state_ = np.array(
-            [(float(random.randint(MIN_DISTANCE, MAX_DISTANCE) - MIN_DISTANCE) / (MAX_DISTANCE - MIN_DISTANCE))])
+            [(float(random.randint(self.MIN_DISTANCE, self.MAX_DISTANCE) - self.MIN_DISTANCE) / (self.MAX_DISTANCE - self.MIN_DISTANCE))])
 
         if (abs(action_ - action_true) > 51):
             reward = -1
@@ -211,7 +212,7 @@ class Env:
 
     def generate_reset_state(self):
         state = np.array(
-            [(float(random.randint(MIN_DISTANCE, MAX_DISTANCE) - MIN_DISTANCE) / (MAX_DISTANCE - MIN_DISTANCE))])
+            [(float(random.randint(self.MIN_DISTANCE, self.MAX_DISTANCE) - self.MIN_DISTANCE) / (self.MAX_DISTANCE - self.MIN_DISTANCE))])
         return state
 
     def step(self, action):
@@ -235,5 +236,5 @@ class Env:
         im.close()
 
 
-        a = [(state_ - MIN_DISTANCE) / (MAX_DISTANCE - MIN_DISTANCE)]
+        a = [(state_ - self.MIN_DISTANCE) / (self.MAX_DISTANCE - self.MIN_DISTANCE)]
         return np.array(a), reward, done
