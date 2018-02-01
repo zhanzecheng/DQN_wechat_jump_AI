@@ -2,12 +2,12 @@
 将 DQN 应用在微信跳一跳小程序
 在游戏中，把棋子中心和方块中心的距离作状态(state)，按压屏幕的时间作为action来做强化学习。
 
-##效果展示
+## 效果展示
 
 不是很稳定...
 ![image](https://github.com/zhanzecheng/DQN_wechat_jump_AI/blob/master/data/demo.gif)
 
-##预训练
+## 预训练
 由于正常游戏中样本量太少，这里采用了预训练的方式来加速强化学习的过程。每次随机生成距离状态量，根据预设的参数来求出虚拟的真实按压时间。利用它与模型输出的action做比较，判断游戏是否game over。
 ## Requirement
 
@@ -34,7 +34,7 @@ tqdm
 
     List of devices attached
     6934dc33    device
-便完成配置
+便完成配置 . 
 windows和linux环境配置可参考下面的连接
 [配置链接](https://github.com/wangshub/wechat_jump_game/wiki/Android-%E5%92%8C-iOS-%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4)
 
