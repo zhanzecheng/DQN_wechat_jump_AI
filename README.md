@@ -16,18 +16,13 @@ tensorflow > 1.2.0
 tqdm
 
 ## Installing 
-
-#### tensorflow
     sudo pip3 install tensorflow
-    
-#### tqdm
     sudo pip3 install tqdm
-
 #### ADB 
 使用ADB来从安卓机中截图，如果使用的是mac电脑，安装如下：
 
-    brew cask install android-platform-tools
-手机USB连接上电脑之后，终端输入命令
+    brew cask install android-platform-tools
+手机需要打开开发者模式，这里贴上一篇[小米手机打开开发者模式](https://jingyan.baidu.com/article/0964eca27ea78c8285f536a6.html)的教程，之后手机USB连接上电脑，终端输入命令
 
     adb devices
 如果看到显示信息是
@@ -37,10 +32,7 @@ tqdm
 便完成配置 . 
 windows和linux环境配置可参考下面的连接
 [配置链接](https://github.com/wangshub/wechat_jump_game/wiki/Android-%E5%92%8C-iOS-%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4)
-
-
 ## RUN
-
 微信打开跳一跳游戏界面
     
     git clone https://github.com/zhanzecheng/DQN_wechat_jump_AI.git
@@ -53,7 +45,6 @@ windows和linux环境配置可参考下面的连接
     python3 run_this.py --pre=True --pre_epoch=100000
     
 config文件夹包含这各种手机的屏幕参数信息，若效果不好，请根据需要调节。
-
 ## TODO
 1. 开发ios版本：正在进行中
 2. 优化reward函数：等待
