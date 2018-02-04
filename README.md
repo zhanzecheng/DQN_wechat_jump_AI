@@ -22,6 +22,7 @@ tqdm
 使用ADB来从安卓机中截图，如果使用的是mac电脑，安装如下：
 
     brew cask install android-platform-tools
+
 手机需要打开开发者模式，这里贴上一篇[小米手机打开开发者模式](https://jingyan.baidu.com/article/0964eca27ea78c8285f536a6.html)的教程，之后手机USB连接上电脑，终端输入命令
 
     adb devices
